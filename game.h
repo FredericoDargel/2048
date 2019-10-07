@@ -58,11 +58,8 @@ int game () {
 
     }
 
-    //printGame(oGrid, score, dir);
-
     copy    = copyGrid(oGrid);
     buffer  = copyGrid(oGrid);
-
 
     // "Rodates" the copy of the game's board.
     for (int i = 0; i < dir; i++) {
