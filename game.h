@@ -376,6 +376,8 @@ void printGame (GRID oGrid, int score, int dir) {
 /* Function: printController
  * --------------
  * Prints the controller using last direction to change it's color.
+ *
+ * lasDir: uses last direction to paint controller.
  */
 void printController (int lastDir) {
 
@@ -409,6 +411,8 @@ void printController (int lastDir) {
 /* Function: printBoard
  * --------------
  * Prints the board from given GRID.
+ *
+ * oGrid: game's original grid.
  */
 void printBoard (GRID oGrid) {
 
