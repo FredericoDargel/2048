@@ -308,9 +308,9 @@ GRID slide (GRID oGrid) {
  * returns: the amount of points combinations did with this move.
  */
 int combine (GRID oGrid) {
+  
   int score = 0;
-
-
+  
   for (int i = 0; i < oGrid.size; i++) {
     for (int j = 0; j < oGrid.size; j++) {
       if (oGrid.board[i][j] == oGrid.board[i][j+1] && oGrid.board[i][j] > 0) {
