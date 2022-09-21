@@ -14,7 +14,7 @@ void initScoreFile () {
   file = fopen("score.dat", "rb+");
 
   if (file == NULL) {
-    fclose(file);
+    //fclose(file);
     file = fopen("score.dat", "wb+");
 
   }

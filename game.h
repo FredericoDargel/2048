@@ -21,7 +21,7 @@ int combine (GRID);
 void newNumber (GRID);
 bool isChanged (GRID, GRID);
 bool isValue (GRID, int);
-void printGame (GRID, int, int);
+void printGame (GRID, int, int, int);
 void printController (int);
 void printBoard (GRID);
 
@@ -36,6 +36,11 @@ int game () {
 
   // Booting up some core variables.
   srand(time(NULL)); // random seed using functions from time.h
+  int highScore = 0;
+
+  FILE *file;
+  file = fopen("score.dat", "ab+");
+  fread(&highScore, sizeof(int), 1, file);
   int score = 0;
   int dir = -1;
   int lastDir = -1;
@@ -53,7 +58,7 @@ int game () {
   while (isLost == false) {
 
     while (dir == -1) {
-      printGame(oGrid, score, lastDir);
+      printGame(oGrid, highScore, score, lastDir);
       dir = controller();
 
     }
@@ -363,12 +368,15 @@ bool isValue (GRID oGrid, int value) {
  * --------------
  * Handles the game drawing.
  */
-void printGame (GRID oGrid, int score, int dir) {
+void printGame (GRID oGrid, int highScore, int score, int dir) {
 
   printf(CLEAR);
-
-  printf( WHT "\t   2048" RESET);
-  printf( WHT " - SCORE: %d\n\n" RESET, score);
+  if (score > highScore) {
+    highScore = score;
+  }
+  printf( BWHT "\t   2048 " RESET);
+  printf( BWHT "- HIGHSCORE: %d\n\n" RESET, highScore);
+  printf( BWHT " \t SCORE: %d\n\n" RESET, score);
   printBoard(oGrid);
   printController(dir);
 }
